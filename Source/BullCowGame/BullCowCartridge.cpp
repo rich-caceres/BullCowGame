@@ -7,7 +7,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     PrintLine(TEXT("Welcome to the game!"));
     PrintLine(TEXT("Guess the 10 letter word...")); //TODO: change the number 10 to a dynamically showing number
     PrintLine(TEXT("Please press enter when complete..."));
-    HiddenWord = TEXT("abolishment"); //sets the HiddenWord
+    
     //TODO: Set Lives
 }
 
@@ -38,4 +38,12 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     //TODO: end of game, you have lost. Print HiddenWord
     //TODO: do you want to play again?
     //TODO: else loop to the beginning.
+}
+
+void UBullCowCartridge::InitGame()
+{
+    HiddenWord = TEXT("abolishment"); //sets the HiddenWord
+    Lives = 3;
+
+
 }
