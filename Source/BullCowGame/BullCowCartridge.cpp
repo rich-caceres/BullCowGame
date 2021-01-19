@@ -20,17 +20,16 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     //checks player guess
     if (Input == HiddenWord) 
     {
-
         PrintLine(TEXT("You have won the game! Good for you"));
-
     }
     else
     {
-        
+        if (Input.Len() != HiddenWord.Len())
+        {
+            PrintLine(TEXT("The hidden word is 10 letters"));
+        }
         PrintLine(TEXT("Incorrect word. Try again!"));
         //TODO: need to remove life
-        
-        
     }
 
     //TODO: check if life > 0
