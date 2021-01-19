@@ -42,7 +42,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 
 void UBullCowCartridge::InitGame()
 {
-    HiddenWord = TEXT("abolishment"); //sets the HiddenWord
+    HiddenWord = TEXT("abolishment");
     Lives = 3;
 
 
