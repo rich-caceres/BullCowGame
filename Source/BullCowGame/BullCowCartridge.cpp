@@ -26,7 +26,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     {
         if (Input.Len() != HiddenWord.Len())
         {
-            PrintLine(FString::Printf(TEXT("The hidden word is %i letters"), HiddenWord.Len()));
+            PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
         }
         PrintLine(TEXT("Incorrect word. Try again!"));
         //TODO: need to remove life
