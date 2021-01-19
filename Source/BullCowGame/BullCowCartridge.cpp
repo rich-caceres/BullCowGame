@@ -9,7 +9,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 
     PrintLine(TEXT("Welcome to the game!"));
     PrintLine(TEXT("Guess the %i letter word..."), HiddenWord.Len()); 
-    PrintLine(TEXT("Please press enter when complete..."));  
+    PrintLine(TEXT("Type your guess, then print enter..."));  
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
