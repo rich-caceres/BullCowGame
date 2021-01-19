@@ -4,11 +4,14 @@
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
+
+    InitGame();
+
     PrintLine(TEXT("Welcome to the game!"));
-    PrintLine(TEXT("Guess the 10 letter word...")); //TODO: change the number 10 to a dynamically showing number
+    PrintLine(FString::Printf(TEXT("Guess the %i letter word..."), HiddenWord.Len())); 
     PrintLine(TEXT("Please press enter when complete..."));
     
-    InitGame();
+    
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
@@ -26,7 +29,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     {
         if (Input.Len() != HiddenWord.Len())
         {
-            PrintLine(TEXT("The hidden word is 10 letters"));
+            PrintLine(FString::Printf(TEXT("The hidden word is %i letters"), HiddenWord.Len()));
         }
         PrintLine(TEXT("Incorrect word. Try again!"));
         //TODO: need to remove life
