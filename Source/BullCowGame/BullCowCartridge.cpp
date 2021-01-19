@@ -8,7 +8,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     PrintLine(TEXT("Guess the 10 letter word...")); //TODO: change the number 10 to a dynamically showing number
     PrintLine(TEXT("Please press enter when complete..."));
     
-    //TODO: Set Lives
+    InitGame();
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
