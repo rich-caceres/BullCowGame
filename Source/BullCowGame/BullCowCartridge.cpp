@@ -7,6 +7,8 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 
     InitGame();
 
+    PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging
+
     PrintLine(TEXT("Welcome to the game!"));
     PrintLine(TEXT("Guess the %i letter word..."), HiddenWord.Len()); 
     PrintLine(TEXT("Type your guess, then print enter..."));  
