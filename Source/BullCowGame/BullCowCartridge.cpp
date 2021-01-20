@@ -7,11 +7,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 
     InitGame();
 
-    PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging
-
-    PrintLine(TEXT("Welcome to the game!"));
-    PrintLine(TEXT("Guess the %i letter word..."), HiddenWord.Len()); 
-    PrintLine(TEXT("Type your guess, then print enter..."));  
+    //PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
@@ -50,11 +46,13 @@ void UBullCowCartridge::InitGame()
     HiddenWord = TEXT("abolishment");
     Lives = 3;
     //bGameOver = false;
+
+    PrintLine(TEXT("Welcome to the game!"));
+    PrintLine(TEXT("Guess the %i letter word..."), HiddenWord.Len());
+    PrintLine(TEXT("Type your guess, then print enter..."));
 }
 
 void UBullCowCartridge::EndGame()
 {
-
-
-
+    //bGameOver = true;
 }
