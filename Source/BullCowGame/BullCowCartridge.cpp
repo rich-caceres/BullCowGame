@@ -21,16 +21,24 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     if (Input == HiddenWord) 
     {
         PrintLine(TEXT("You have won the game! Good for you"));
-        //bGameOver = true; 
+        EndGame();
     }
     else
     {
+        --Lives;
+        if (Lives == 0) {
+            EndGame();
+        }
+
         if (Input.Len() != HiddenWord.Len())
         {
             PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
         }
+
         PrintLine(TEXT("Incorrect word. Try again!"));
-        //bGameOver= true;
+
+
+        EndGame();
         //TODO: need to remove life
     }
 
@@ -45,7 +53,7 @@ void UBullCowCartridge::InitGame()
 {
     HiddenWord = TEXT("abolishment");
     Lives = 3;
-    //bGameOver = false;
+    bGameOver = false;
 
     PrintLine(TEXT("Welcome to the game!"));
     PrintLine(TEXT("Guess the %i letter word..."), HiddenWord.Len());
@@ -54,5 +62,6 @@ void UBullCowCartridge::InitGame()
 
 void UBullCowCartridge::EndGame()
 {
-    //bGameOver = true;
+    bGameOver = true;
+    PrintLine(TEXT("Press enter to play again!"));
 }
