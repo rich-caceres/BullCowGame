@@ -31,13 +31,17 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
             PrintLine(TEXT("You have lost the game.\n The hidden word is %s.\n"), *HiddenWord);
             EndGame();
         }
-
-        if (Input.Len() != HiddenWord.Len())
+        else
         {
-            PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
+            if (Input.Len() != HiddenWord.Len())
+            {
+                PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
+            }
+
+            PrintLine(TEXT("Incorrect word. Try again!"));
         }
 
-        PrintLine(TEXT("Incorrect word. Try again!"));
+        
     }
 
     //TODO: check if life > 0
