@@ -51,3 +51,10 @@ void UBullCowCartridge::InitGame()
     Lives = 3;
     //bGameOver = false;
 }
+
+void UBullCowCartridge::EndGame()
+{
+
+
+
+}
