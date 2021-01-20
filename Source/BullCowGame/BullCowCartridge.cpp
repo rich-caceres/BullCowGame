@@ -39,6 +39,7 @@ void UBullCowCartridge::EndGame()
 {
     bGameOver = true;
     PrintLine(TEXT("Press enter to play again!"));
+    //TODO: Play again or exit options
 }
 
 void UBullCowCartridge::ProcessGuess(FString Input)
