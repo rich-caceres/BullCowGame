@@ -20,8 +20,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     PrintLine(Input);//echos the player guess
 
     // if the game is over then do something
+    // else check the player guess
 
-    //checks player guess
     if (Input == HiddenWord) 
     {
         PrintLine(TEXT("You have won the game! Good for you"));
