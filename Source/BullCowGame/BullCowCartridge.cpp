@@ -15,10 +15,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     ClearScreen();
     PrintLine(Input);//echos the player guess
 
-    if (bGameOver != false) {
-        InitGame();
-    }
-
+   
     if (Input == HiddenWord) 
     {
         PrintLine(TEXT("You have won the game! Good for you"));
@@ -41,6 +38,9 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
             PrintLine(TEXT("Incorrect word. Try again!"));
         }
 
+        if (bGameOver != false) {
+            InitGame();
+        }
         
     }
 
