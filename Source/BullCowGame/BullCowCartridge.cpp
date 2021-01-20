@@ -15,7 +15,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     ClearScreen();
     PrintLine(Input);//echos the player guess
 
-    if (bGameOver != false) {
+    if (bGameOver) 
+    {
         InitGame();
         ++Lives;
     }
