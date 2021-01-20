@@ -21,31 +21,6 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     else
     { 
         ProcessGuess(Input, Lives);
-        if (Input == HiddenWord) 
-        {
-            PrintLine(TEXT("You have won the game! Good for you"));
-            EndGame();
-        }
-        else
-        {
-            --Lives;
-
-            if (Lives == 0) 
-            {
-                PrintLine(TEXT("You have lost the game.\nThe hidden word is %s.\n"), *HiddenWord);
-                EndGame();
-            }
-            else
-            {
-                if (Input.Len() != HiddenWord.Len())
-                {
-                    PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
-                }
-                PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
-                PrintLine(TEXT("Incorrect word. Try again!"));
-            }
-
-        }
         
     }
 
@@ -73,7 +48,31 @@ void UBullCowCartridge::EndGame()
     PrintLine(TEXT("Press enter to play again!"));
 }
 
-void UBullCowCartridge::ProcessGuess(FString input, int32 Lives)
+void UBullCowCartridge::ProcessGuess(FString Input, int32 Lives)
 {
+    if (Input == HiddenWord)
+    {
+        PrintLine(TEXT("You have won the game! Good for you"));
+        EndGame();
+    }
+    else
+    {
+        --Lives;
 
+        if (Lives == 0)
+        {
+            PrintLine(TEXT("You have lost the game.\nThe hidden word is %s.\n"), *HiddenWord);
+            EndGame();
+        }
+        else
+        {
+            if (Input.Len() != HiddenWord.Len())
+            {
+                PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
+            }
+            PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
+            PrintLine(TEXT("Incorrect word. Try again!"));
+        }
+
+    }
 }
