@@ -13,13 +13,14 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
 { 
     ClearScreen();
-    PrintLine(Input);//echos the player guess
+    
 
     if (bGameOver) 
     {
         InitGame();
         ++Lives;
     }
+    
    
     if (Input == HiddenWord) 
     {
@@ -40,7 +41,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
             {
                 PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
             }
-
+            PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
             PrintLine(TEXT("Incorrect word. Try again!"));
         }
         
