@@ -20,7 +20,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     }
     else
     { 
-        ProcessGuess(Input); 
+        ProcessGuess(Input);//checks the user input 
     }
 
     //TODO: check if life > 0
