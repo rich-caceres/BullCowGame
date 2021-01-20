@@ -20,6 +20,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     }
     else
     { 
+        ProcessGuess();
         if (Input == HiddenWord) 
         {
             PrintLine(TEXT("You have won the game! Good for you"));
@@ -70,4 +71,9 @@ void UBullCowCartridge::EndGame()
 {
     bGameOver = true;
     PrintLine(TEXT("Press enter to play again!"));
+}
+
+void UBullCowCartridge::ProcessGuess()
+{
+
 }
