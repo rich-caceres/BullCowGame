@@ -52,6 +52,10 @@ void UBullCowCartridge::ProcessGuess(FString Input)
     }
 
     //TODO: Check If Isogram
+    //if (!isIsogram) {
+
+
+    //}
 
     if (Input != HiddenWord)
     {
