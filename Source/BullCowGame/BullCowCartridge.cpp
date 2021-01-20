@@ -19,6 +19,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     ClearScreen();
     PrintLine(Input);//echos the player guess
 
+    // if the game is over then do something
+
     //checks player guess
     if (Input == HiddenWord) 
     {
