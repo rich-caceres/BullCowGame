@@ -59,7 +59,7 @@ void UBullCowCartridge::InitGame()
     Lives = HiddenWord.Len();
     bGameOver = false;
 
-    PrintLine(TEXT("Welcome to the game!"));
+    PrintLine(TEXT("Welcome to the game! You have %i lives"), Lives);
     PrintLine(TEXT("Guess the %i letter word..."), HiddenWord.Len());
     PrintLine(TEXT("Type your guess, then print enter..."));
 }
