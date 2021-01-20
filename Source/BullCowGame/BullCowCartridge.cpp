@@ -56,7 +56,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 void UBullCowCartridge::InitGame()
 {
     HiddenWord = TEXT("abolishment");
-    Lives = 3;
+    Lives = HiddenWord.Len();
     bGameOver = false;
 
     PrintLine(TEXT("Welcome to the game!"));
