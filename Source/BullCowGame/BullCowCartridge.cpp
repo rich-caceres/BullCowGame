@@ -17,6 +17,7 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 
     if (bGameOver != false) {
         InitGame();
+        ++Lives;
     }
    
     if (Input == HiddenWord) 
@@ -26,7 +27,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
     }
     else
     {
-        --Lives;
+       --Lives;
+
         if (Lives == 0) {
             PrintLine(TEXT("You have lost the game.\n The hidden word is %s.\n"), *HiddenWord);
             EndGame();
