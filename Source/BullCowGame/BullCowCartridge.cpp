@@ -79,3 +79,8 @@ void UBullCowCartridge::ProcessGuess(FString Input)
     }
 
 }
+
+bool IsIsogram(FString input) {
+
+    return true;
+}
