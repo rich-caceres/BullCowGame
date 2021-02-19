@@ -32,15 +32,9 @@ void UBullCowCartridge::InitGame()
    
     //HiddenWord = TEXT("abolishment");
     
-    TArray<FString> AcceptedWords;
-    //PrintLine(TEXT("%i"), i); 
+    TArray<FString> AcceptedWords; 
     
-    for (int32 Index = 0; Index < Words.Num(); Index++) {
-        if (IsIsogram(Words[Index])) {
-            AcceptedWords.Emplace(Words[Index]);
-        }
-    }
-
+    AcceptedWords = GetAcceptableWords(Words);
     int wordIndex = rand() % AcceptedWords.Num() + 1;
     HiddenWord = AcceptedWords[wordIndex];
       
@@ -114,4 +108,16 @@ bool UBullCowCartridge::IsIsogram(FString input) const
     }
 
     return true;
+}
+
+TArray<FString> UBullCowCartridge::GetAcceptableWords(TArray<FString> WordArray) {
+
+    TArray<FString> AcceptedWords;
+
+    for (int32 Index = 0; Index < WordArray.Num(); Index++) {
+        if (IsIsogram(WordArray[Index])) {
+            AcceptedWords.Emplace(Words[Index]);
+        }
+    }
+    return AcceptedWords;
 }

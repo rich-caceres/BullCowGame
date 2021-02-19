@@ -18,6 +18,7 @@ public:
 	void EndGame();
 	void ProcessGuess(FString Input);
 	bool IsIsogram(FString Input) const;
+	TArray<FString>GetAcceptableWords(TArray<FString> words);
 	//declarations go below!
 private:
 	FString HiddenWord;
