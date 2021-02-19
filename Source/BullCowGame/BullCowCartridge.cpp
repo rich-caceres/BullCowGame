@@ -57,29 +57,29 @@ void UBullCowCartridge::ProcessGuess(FString Input)
         PrintLine(TEXT("This is not an Isogram!"));
     }
     else{
-        PrintLine(TEXT("This is an Isogram!"));
-    }
 
-    if (Input != HiddenWord)
-    {
-        --Lives;
-        if (Lives == 0)
+        if (Input != HiddenWord)
         {
-            PrintLine(TEXT("You have lost the game.\nThe hidden word is %s.\n"), *HiddenWord);
-            EndGame();
+            --Lives;
+            if (Lives == 0)
+            {
+                PrintLine(TEXT("You have lost the game.\nThe hidden word is %s.\n"), *HiddenWord);
+                EndGame();
+                return;
+            }
+
+            if (Input.Len() != HiddenWord.Len())
+            {
+                PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
+            }
+
+            PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
+            PrintLine(TEXT("Incorrect word. Try again!"));
+
             return;
         }
-
-        if (Input.Len() != HiddenWord.Len())
-        {
-            PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
-        }
-
-        PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
-        PrintLine(TEXT("Incorrect word. Try again!"));
-
-        return;
     }
+
 
 }
 
