@@ -83,18 +83,17 @@ void UBullCowCartridge::ProcessGuess(FString Input)
 bool UBullCowCartridge::IsIsogram(FString input) const
 {
 
-    //for each(int i = 0; i < input.Len()-1; ++i ){
-    // char letter1 = input[i];
-    //  for each(int j = 1; j < input.Len()-1;++i){
-            
-            //char letter2 = input[j];
-            //if(letter1 == letter2)
-              //{
-                //return false;
-            //  }
-        //}
+   for(int i = 0; i < input.Len()-1; ++i ){
+    char letter1 = input[i];
+     for(int j = 1; j < input.Len()-1;++j){
+            char letter2 = input[j];
+            if(letter1 == letter2)
+              {
+                return false;
+              }
+        }
     
-    //}
+    }
 
     return true;
 }
