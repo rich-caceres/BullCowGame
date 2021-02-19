@@ -18,7 +18,7 @@ public:
 	void EndGame();
 	void ProcessGuess(FString Input);
 	bool IsIsogram(FString Input) const;
-	// Your declarations go below!
+	//declarations go below!
 private:
 	FString HiddenWord;
 	int32 Lives;
