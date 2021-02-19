@@ -31,10 +31,20 @@ void UBullCowCartridge::InitGame()
 {
    
     //HiddenWord = TEXT("abolishment");
-    int32 i = Words.Num();
-    PrintLine(TEXT("%i"), i);
-    HiddenWord = Words[2];
-    IsIsogram(HiddenWord);
+    
+    TArray<FString> AcceptedWords;
+    //PrintLine(TEXT("%i"), i); 
+    
+    for (int32 Index = 0; Index < Words.Num(); Index++) {
+        if (IsIsogram(Words[Index])) {
+            AcceptedWords.Emplace(Words[Index]);
+        }
+    }
+
+    int wordIndex = rand() % AcceptedWords.Num() + 1;
+    HiddenWord = AcceptedWords[wordIndex];
+      
+    
     Lives = HiddenWord.Len();
     bGameOver = false;
 
