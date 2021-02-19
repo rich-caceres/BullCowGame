@@ -52,11 +52,11 @@ void UBullCowCartridge::ProcessGuess(FString Input)
     }
 
     //TODO: Check If Isogram
-    if (!IsIsogram(Input)) {
+    if (IsIsogram(Input)) {
 
         PrintLine(TEXT("This is not an Isogram!"));
     }
-    else {
+    else{
         PrintLine(TEXT("This is an Isogram!"));
     }
 
