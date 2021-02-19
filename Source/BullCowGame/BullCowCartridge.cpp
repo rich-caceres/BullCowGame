@@ -29,6 +29,13 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 
 void UBullCowCartridge::InitGame()
 {
+    while (false) {
+        int32 i = Words.Num();
+        HiddenWord=Words[i];
+        if (IsIsogram(HiddenWord)) {
+            true;
+        }
+    }
     HiddenWord = TEXT("abolishment");
     Lives = HiddenWord.Len();
     bGameOver = false;
