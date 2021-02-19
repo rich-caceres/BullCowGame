@@ -86,8 +86,8 @@ void UBullCowCartridge::ProcessGuess(FString Input)
 bool UBullCowCartridge::IsIsogram(FString input) const
 {
     
-   for(int i = 0; i < input.Len(); ++i ){
-       for (int j = i + 1; j < input.Len(); ++j) {
+   for(int i = 0; i < input.Len(); i++ ){
+       for (int j = i + 1; j < input.Len(); j++) {
             if(input[i] == input[j])
               {
                 return false;
