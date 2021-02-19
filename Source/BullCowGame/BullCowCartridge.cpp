@@ -52,7 +52,7 @@ void UBullCowCartridge::ProcessGuess(FString Input)
     }
 
     //TODO: Check If Isogram
-    if (IsIsogram(Input)) {
+    if (!IsIsogram(Input)) {
 
         PrintLine(TEXT("This is not an Isogram!"));
     }
@@ -85,15 +85,18 @@ void UBullCowCartridge::ProcessGuess(FString Input)
 
 bool UBullCowCartridge::IsIsogram(FString input) const
 {
-
+    int j = 1;
    for(int i = 0; i < input.Len()-1; ++i ){
-    char letter1 = input[i];
-     for(int j = 1; j < input.Len()-1;++j){
-            char letter2 = input[j];
+    TCHAR letter1 = input[i];
+   
+     while(j < input.Len()){
+            TCHAR letter2 = input[j];
             if(letter1 == letter2)
               {
                 return false;
               }
+            ++j;
+            break;
         }
     
     }
