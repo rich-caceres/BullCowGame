@@ -114,9 +114,9 @@ TArray<FString> UBullCowCartridge::GetAcceptableWords(TArray<FString> WordArray)
 
     TArray<FString> AcceptedWords;
 
-    for (int32 Index = 0; Index < WordArray.Num(); Index++) {
-        if (IsIsogram(WordArray[Index])) {
-            AcceptedWords.Emplace(Words[Index]);
+    for (FString word : WordArray) {
+        if (IsIsogram(word)) {
+            AcceptedWords.Emplace(word);
         }
     }
     return AcceptedWords;
