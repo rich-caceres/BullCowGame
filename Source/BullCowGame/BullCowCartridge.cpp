@@ -1,11 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "BullCowCartridge.h"
-#include "ListOfHiddenWords.h"
+#include "Misc/FileHelper.h"
+#include "Misc/Paths.h"
 
 void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
-
+    const FString WordListPath = FPaths::ProjectContentDir() / TEXT("WordList/ListOfHiddenWords.txt");
+    FFileHelper::LoadFileToStringArray(Words, *WordListPath);
     InitGame();
 
     //PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging

@@ -22,5 +22,6 @@ public:
 private:
 	FString HiddenWord;
 	int32 Lives;
+	TArray<FString> Words;
 	bool bGameOver;
 };
