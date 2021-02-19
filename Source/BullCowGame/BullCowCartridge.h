@@ -10,7 +10,7 @@ UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BULLCOWGAME_API UBullCowCartridge : public UCartridge
 {
 	GENERATED_BODY()
-
+	//public devlaration below
 public:
 	virtual void BeginPlay() override;
 	virtual void OnInput(const FString& Input) override;
