@@ -55,7 +55,7 @@ void UBullCowCartridge::EndGame()
 }
 
 //Processes the guess of the isogram
-void UBullCowCartridge::ProcessGuess(FString Input)
+void UBullCowCartridge::ProcessGuess(const FString& Input)
 {
     if (Input == HiddenWord)
     {
@@ -96,7 +96,7 @@ void UBullCowCartridge::ProcessGuess(FString Input)
 }
 
 //Checks if a word is an isogram
-bool UBullCowCartridge::IsIsogram(FString input) const
+bool UBullCowCartridge::IsIsogram(const FString& input) const
 {
     
    for(int i = 0; i < input.Len(); i++ )
@@ -114,7 +114,7 @@ bool UBullCowCartridge::IsIsogram(FString input) const
 }
 
 //Checks for valid words in our word file and returns all isograms in an array
-TArray<FString> UBullCowCartridge::GetAcceptableWords(TArray<FString> WordArray) 
+TArray<FString> UBullCowCartridge::GetAcceptableWords(const TArray<FString>& WordArray) 
 {
 
     TArray<FString> AcceptedWords;

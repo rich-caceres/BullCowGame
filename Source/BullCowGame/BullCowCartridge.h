@@ -16,9 +16,9 @@ public:
 	virtual void OnInput(const FString& Input) override;
 	void InitGame();
 	void EndGame();
-	void ProcessGuess(FString Input);
-	bool IsIsogram(FString Input) const;
-	TArray<FString>GetAcceptableWords(TArray<FString> words);
+	void ProcessGuess(const FString& Input);
+	bool IsIsogram(const FString& Input) const;
+	TArray<FString>GetAcceptableWords(const TArray<FString>& words);
 	//declarations go below!
 private:
 	FString HiddenWord;
