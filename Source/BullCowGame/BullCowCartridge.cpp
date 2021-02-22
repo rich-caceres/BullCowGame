@@ -135,3 +135,29 @@ TArray<FString> UBullCowCartridge::GetAcceptableWords(const TArray<FString>& Wor
     }
     return AcceptedWords;
 }
+
+void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int32& CowCount) const 
+{
+    BullCount = 0;
+    CowCount = 0;
+
+    for (int32 GuessIndex = 0; GuessIndex < Input.Len(); GuessIndex++)
+    {
+ 
+        if (Input[GuessIndex] == HiddenWord[GuessIndex]) 
+        {
+            ++BullCount;
+            continue;
+        }
+        
+        for(int32 HiddenIndex; HiddenIndex < HiddenWord.Len(); HiddenIndex++)
+        {
+            if (Input[GuessIndex] == HiddenWord[HiddenIndex])
+            {
+                ++CowCount;
+                continue;
+            }
+        }
+    }
+
+}
