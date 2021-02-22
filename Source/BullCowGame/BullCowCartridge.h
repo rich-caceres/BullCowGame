@@ -23,7 +23,7 @@ public:
 	void InitGame();
 	void EndGame();
 	void ProcessGuess(const FString& Input);
-	void GetBullCows(const FString& Input, int32& BullCount, int32& CowCount);
+	FBullCowCount GetBullCows(const FString& Input);
 	static bool IsIsogram(const FString& Input);
 	TArray<FString>GetAcceptableWords(const TArray<FString>& words);
 	//declarations go below!

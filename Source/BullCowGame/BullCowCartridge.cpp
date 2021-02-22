@@ -81,8 +81,7 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
 
             PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
             PrintLine(TEXT("Incorrect word. Try again!"));
-            FBullCowCount Count;
-            GetBullCows(Input, Count.Bulls, Count.Cows);
+            FBullCowCount Count = GetBullCows(Input);
             PrintLine(TEXT("You have %i Bulls and %i Cows"), Count.Bulls, Count.Cows);
             return;
         }
@@ -125,17 +124,16 @@ TArray<FString> UBullCowCartridge::GetAcceptableWords(const TArray<FString>& Wor
     return AcceptedWords;
 }
 
-void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int32& CowCount) 
+FBullCowCount UBullCowCartridge::GetBullCows(const FString& Input) 
 {
-    BullCount = 0;
-    CowCount = 0;
+    FBullCowCount Count;
 
     for (int32 GuessIndex = 0; GuessIndex < Input.Len(); GuessIndex++)
     {
         //checks to see if the guess letter is in the same place as the hidden word
         if (Input[GuessIndex] == HiddenWord[GuessIndex]) 
         {
-            ++BullCount;
+            Count.Bulls++;
             continue;
         }
         //Checks the remainder of the hidden word
@@ -143,10 +141,11 @@ void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int3
         {
             if (Input[GuessIndex] == HiddenWord[HiddenIndex])
             { 
-                ++CowCount;
+                Count.Cows++;
                 break;
             }
         }
     }
+    return Count;
 
 }
