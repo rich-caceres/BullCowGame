@@ -144,7 +144,7 @@ void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int3
             if (Input[GuessIndex] == HiddenWord[HiddenIndex])
             { 
                 ++CowCount;
-                continue;
+                break;
             }
         }
     }
