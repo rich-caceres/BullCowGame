@@ -11,8 +11,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     {
         return IsIsogram(Word);
     });
-    FBullCowCount count;
-
+    
     InitGame();
 }
 
@@ -83,9 +82,9 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
 
             PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
             PrintLine(TEXT("Incorrect word. Try again!"));
-            int32 Bulls, Cows;
-            GetBullCows(Input, Bulls, Cows);
-            PrintLine(TEXT("You have %i Bulls and %i Cows"), Bulls, Cows);
+            FBullCowCount Count;
+            GetBullCows(Input, Count.Bulls, Count.Cows);
+            PrintLine(TEXT("You have %i Bulls and %i Cows"), Count.Bulls, Count.Cows);
             return;
         }
     }
