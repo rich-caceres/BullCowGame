@@ -33,17 +33,8 @@ void UBullCowCartridge::OnInput(const FString& Input) // When the player hits en
 
 void UBullCowCartridge::InitGame()
 {
-   
-    //HiddenWord = TEXT("abolishment");
-    
-    //TArray<FString> AcceptedWords; 
-    
-    //AcceptedWords = GetAcceptableWords(Words);
-    //int wordIndex = rand() % AcceptedWords.Num() + 1;
-    //int wordIndex = FMath::RandRange(0, AcceptedWords.Num() + 1);
-    HiddenWord = Isograms[FMath::RandRange(0, Isograms.Num() - 1)];
-      
-    
+
+    HiddenWord = Isograms[FMath::RandRange(0, Isograms.Num() - 1)];    
     Lives = HiddenWord.Len();
     bGameOver = false;
 
