@@ -11,6 +11,8 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     {
         return IsIsogram(Word);
     });
+    FBullCowCount count;
+
     InitGame();
 }
 
