@@ -10,8 +10,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     FFileHelper::LoadFileToStringArrayWithPredicate(Isograms, *WordListPath, [](const FString& Word)
     {
         return IsIsogram(Word);
-    });
-    
+    }); 
     InitGame();
 }
 
