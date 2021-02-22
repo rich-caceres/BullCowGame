@@ -35,8 +35,9 @@ void UBullCowCartridge::InitGame()
     TArray<FString> AcceptedWords; 
     
     AcceptedWords = GetAcceptableWords(Words);
-    int wordIndex = rand() % AcceptedWords.Num() + 1;
-    HiddenWord = AcceptedWords[wordIndex];
+    //int wordIndex = rand() % AcceptedWords.Num() + 1;
+    //int wordIndex = FMath::RandRange(0, AcceptedWords.Num() + 1);
+    HiddenWord = AcceptedWords[FMath::RandRange(0, AcceptedWords.Num() + 1)];
       
     
     Lives = HiddenWord.Len();
