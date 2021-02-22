@@ -99,6 +99,7 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
     }
     int32 Bulls, Cows;
     GetBullCows(Input, Bulls, Cows);
+    PrintLine(TEXT("You have %i Bulls and %i Cows"), Bulls, Cows);
 
 }
 
@@ -143,13 +144,13 @@ void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int3
 
     for (int32 GuessIndex = 0; GuessIndex < Input.Len(); GuessIndex++)
     {
- 
+        //checks to see if the guess letter is in the same place as the hidden word
         if (Input[GuessIndex] == HiddenWord[GuessIndex]) 
         {
             ++BullCount;
             continue;
         }
-        
+        //Checks the remainder of the hidden word
         for(int32 HiddenIndex; HiddenIndex < HiddenWord.Len(); HiddenIndex++)
         {
             if (Input[GuessIndex] == HiddenWord[HiddenIndex])
