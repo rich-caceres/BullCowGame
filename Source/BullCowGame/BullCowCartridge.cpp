@@ -140,7 +140,7 @@ void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int3
             continue;
         }
         //Checks the remainder of the hidden word
-        for(int32 HiddenIndex; HiddenIndex < HiddenWord.Len(); HiddenIndex++)
+        for(int32 HiddenIndex = 0; HiddenIndex < HiddenWord.Len(); HiddenIndex++)
         {
             if (Input[GuessIndex] == HiddenWord[HiddenIndex])
             { 
