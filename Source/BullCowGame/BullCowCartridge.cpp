@@ -11,10 +11,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     {
         return IsIsogram(Word);
     });
-    //Isograms = GetAcceptableWords(Words);
     InitGame();
-
-    //PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging
 }
 
 void UBullCowCartridge::OnInput(const FString& Input) // When the player hits enter
