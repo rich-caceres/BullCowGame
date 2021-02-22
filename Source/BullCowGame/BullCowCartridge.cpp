@@ -7,8 +7,11 @@ void UBullCowCartridge::BeginPlay() // When the game starts
 {
     Super::BeginPlay();
     const FString WordListPath = FPaths::ProjectContentDir() / TEXT("WordList/ListOfHiddenWords.txt");
-    FFileHelper::LoadFileToStringArray(Words, *WordListPath);
-    Isograms = GetAcceptableWords(Words);
+    FFileHelper::LoadFileToStringArrayWithPredicate(Isograms, *WordListPath, [](const FString& Word)
+    {
+        return IsIsogram(Word);
+    });
+    //Isograms = GetAcceptableWords(Words);
     InitGame();
 
     //PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging
