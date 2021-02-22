@@ -32,12 +32,12 @@ void UBullCowCartridge::InitGame()
    
     //HiddenWord = TEXT("abolishment");
     
-    TArray<FString> AcceptedWords; 
+    //TArray<FString> AcceptedWords; 
     
-    AcceptedWords = GetAcceptableWords(Words);
+    //AcceptedWords = GetAcceptableWords(Words);
     //int wordIndex = rand() % AcceptedWords.Num() + 1;
     //int wordIndex = FMath::RandRange(0, AcceptedWords.Num() + 1);
-    HiddenWord = AcceptedWords[FMath::RandRange(0, AcceptedWords.Num() + 1)];
+    HiddenWord = GetAcceptableWords(Words)[FMath::RandRange(0, GetAcceptableWords(Words).Num() - 1)];
       
     
     Lives = HiddenWord.Len();
