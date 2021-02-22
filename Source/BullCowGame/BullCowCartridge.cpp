@@ -73,7 +73,8 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
     {
         PrintLine(TEXT("This is not an Isogram!\nNo lives have been deducted.\nYou have %i left."), Lives);
     }
-    else{
+    else
+    {
 
         if (Input != HiddenWord)
         {
@@ -96,7 +97,8 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
             return;
         }
     }
-
+    int32 Bulls, Cows;
+    GetBullCows(Input, Bulls, Cows);
 
 }
 
