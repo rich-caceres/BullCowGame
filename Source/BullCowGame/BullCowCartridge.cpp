@@ -8,6 +8,7 @@ void UBullCowCartridge::BeginPlay() // When the game starts
     Super::BeginPlay();
     const FString WordListPath = FPaths::ProjectContentDir() / TEXT("WordList/ListOfHiddenWords.txt");
     FFileHelper::LoadFileToStringArray(Words, *WordListPath);
+    Isograms = GetAcceptableWords(Words);
     InitGame();
 
     //PrintLine(TEXT("The HiddenWord is: %s. The length of said word is: %i"), *HiddenWord, HiddenWord.Len());//For debugging
@@ -37,7 +38,7 @@ void UBullCowCartridge::InitGame()
     //AcceptedWords = GetAcceptableWords(Words);
     //int wordIndex = rand() % AcceptedWords.Num() + 1;
     //int wordIndex = FMath::RandRange(0, AcceptedWords.Num() + 1);
-    HiddenWord = GetAcceptableWords(Words)[FMath::RandRange(0, GetAcceptableWords(Words).Num() - 1)];
+    HiddenWord = Isograms[FMath::RandRange(0, Isograms.Num() - 1)];
       
     
     Lives = HiddenWord.Len();
@@ -97,7 +98,7 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
 }
 
 //Checks if a word is an isogram
-bool UBullCowCartridge::IsIsogram(const FString& input) const
+bool UBullCowCartridge::IsIsogram(const FString& input)
 {
     
    for(int i = 0; i < input.Len(); i++ )
