@@ -135,6 +135,7 @@ void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int3
         //checks to see if the guess letter is in the same place as the hidden word
         if (Input[GuessIndex] == HiddenWord[GuessIndex]) 
         {
+            PrintLine(TEXT("There is a %s in position %i this hidden word."),Input[GuessIndex], GuessIndex);
             ++BullCount;
             continue;
         }
@@ -142,7 +143,8 @@ void UBullCowCartridge::GetBullCows(const FString& Input, int32& BullCount, int3
         for(int32 HiddenIndex; HiddenIndex < HiddenWord.Len(); HiddenIndex++)
         {
             if (Input[GuessIndex] == HiddenWord[HiddenIndex])
-            {
+            { 
+                PrintLine(TEXT("There is a %s somewhere in the hidden word."), Input[GuessIndex]);
                 ++CowCount;
                 continue;
             }
