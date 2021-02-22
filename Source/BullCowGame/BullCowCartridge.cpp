@@ -63,7 +63,6 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
     }
     else
     {
-
         if (Input != HiddenWord)
         {
             --Lives;
@@ -92,8 +91,7 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
 
 //Checks if a word is an isogram
 bool UBullCowCartridge::IsIsogram(const FString& input)
-{
-    
+{   
    for(int i = 0; i < input.Len(); i++ )
    {
        for (int j = i + 1; j < input.Len(); j++) 
