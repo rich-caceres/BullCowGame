@@ -78,10 +78,12 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
                 PrintLine(TEXT("The hidden word is %i letters"), HiddenWord.Len());
             }
 
+            
+
             PrintLine(TEXT("Sorry, you have %i lives left"), Lives);
             PrintLine(TEXT("Incorrect word. Try again!"));
             FBullCowCount Count = GetBullCows(Input);
-            PrintLine(TEXT("You have %i Bulls and %i Cows"), Count.Bulls, Count.Cows);
+            PrintLine(TEXT("You have %i Bulls and %i Cows. The Bull letters found appear below:\n%s"), Count.Bulls, Count.Cows, *Count.BullString);
             return;
         }
     }
@@ -125,6 +127,7 @@ TArray<FString> UBullCowCartridge::GetAcceptableWords(const TArray<FString>& Wor
 FBullCowCount UBullCowCartridge::GetBullCows(const FString& Input) 
 {
     FBullCowCount Count;
+    Count.BullString = HiddenWord;
 
     for (int32 GuessIndex = 0; GuessIndex < Input.Len(); GuessIndex++)
     {
@@ -133,6 +136,11 @@ FBullCowCount UBullCowCartridge::GetBullCows(const FString& Input)
         {
             Count.Bulls++;
             continue;
+        }
+        else
+        {
+            //Count.BullString.RemoveAt(GuessIndex);
+            //Count.BullString.InsertAt(GuessIndex, TEXT("*"));
         }
         //Checks the remainder of the hidden word
         for(int32 HiddenIndex = 0; HiddenIndex < HiddenWord.Len(); HiddenIndex++)
@@ -144,6 +152,7 @@ FBullCowCount UBullCowCartridge::GetBullCows(const FString& Input)
             }
         }
     }
+    
     return Count;
 
 }
