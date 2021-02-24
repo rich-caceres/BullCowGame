@@ -84,7 +84,7 @@ void UBullCowCartridge::ProcessGuess(const FString& Input)
             PrintLine(TEXT("Incorrect word. Try again!"));
             FBullCowCount Count = GetBullCows(Input);
             FString BullString(Count.BullString);
-            PrintLine(TEXT("You have %i Bulls and %i Cows. The Bull letters found appear below:\n%s"), Count.Bulls, Count.Cows, *BullString);
+            PrintLine(TEXT("You have %i Bulls and %i Cows.\nThe Bull letters appear below:\n%s"), Count.Bulls, Count.Cows, *BullString);
             return;
         }
     }
